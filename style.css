@@ -434,24 +434,21 @@ HERO
     margin:auto;
 }
 
-.about-text h3{
-    font-size:34px;
-    margin-bottom:20px;
-    color:var(--primary);
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:30px;
+    top:0;
+    width:4px;
+    height:100%;
+    background:var(--primary);
+    border-radius:2px;
 }
 
-.about-text p{
-    color:var(--text);
-    line-height:1.9;
-    margin-bottom:20px;
-    text-align:justify;
-}
-
-/* Mobile par left align acha lagta hai */
-@media (max-width:768px){
-    .about-text p{
-        text-align:left;
-    }
+.timeline-item{
+    position:relative;
+    margin-bottom:40px;
+    padding-left:80px;
 }
 
 .timeline-item::before{
@@ -503,7 +500,7 @@ HERO
     /* Sirf About image hide hogi mobile par, Hero image rahegi */
         .about-image{
             display:none;
-        }
+}
 
 .about-content{
     grid-template-columns:1fr;
@@ -526,7 +523,7 @@ HERO
     }
 
     .hero{
-        padding-top:140px;
+        padding-top:100px;
         padding-bottom:40px;
         min-height:auto;
     }
@@ -591,19 +588,8 @@ HERO
     }
 
     .about-text h3{
-    font-size:34px;
-    margin-bottom:20px;
-    color:var(--primary);
-    text-align:center;
-}
-
-.about-text p{
-    color:var(--text);
-    line-height:1.9;
-    margin-bottom:20px;
-    text-align:center;
-}
-
+        font-size:26px;
+    }
 
     .about-info{
         grid-template-columns:1fr;
@@ -632,22 +618,23 @@ HERO
         margin-bottom:30px;
     }
 
-    .project-content{
-    padding:30px;
-    text-align:center;
-}
+    .timeline-item::before{
+        left:7px;
+        width:14px;
+        height:14px;
+    }
 
-.project-content h3{
-    font-size:24px;
-    margin-bottom:15px;
-    color:var(--primary);
-}
+    .timeline-content{
+        padding:20px;
+    }
 
-.project-content p{
-    color:var(--text);
-    line-height:1.8;
-    text-align:center;
-}
+    .timeline-content h3{
+        font-size:20px;
+    }
+
+    .contact-wrapper{
+        grid-template-columns:1fr;
+    }
 
     footer{
         padding:30px 15px;
@@ -756,24 +743,18 @@ body.dark #navLinks.show{
     box-shadow:var(--shadow);
     transition:.35s;
     cursor:pointer;
-    border:2px solid var(--border);
+    border:1px solid transparent;
 }
 
 .skill-card:hover{
     transform:translateY(-10px);
     border-color:var(--primary);
-    box-shadow:0 20px 40px rgba(108,99,255,.15);
 }
 
 .skill-card i{
     font-size:48px;
     color:var(--primary);
     margin-bottom:20px;
-    transition:.3s;
-}
-
-.skill-card:hover i{
-    transform:scale(1.1);
 }
 
 .skill-card h3{
@@ -781,62 +762,15 @@ body.dark #navLinks.show{
     font-weight:600;
 }
 
-.info-box{
-    display:flex;
-    gap:20px;
-    align-items:center;
-    background:var(--card);
-    padding:20px;
-    border-radius:15px;
-    box-shadow:var(--shadow);
-}
+/* ===================================
+   SERVICES SECTION
+=================================== */
 
-.info-box > div{
-    flex:1;
-    text-align:left;
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
 }
-
-.info-box h4{
-    margin-bottom:5px;
-    font-size:18px;
-    color:var(--dark);
-}
-
-.info-box p{
-    margin:0;
-    color:var(--text);
-}
-
-.info-box a{
-    color:var(--primary);
-    word-break:break-all;
-}
-
-.info-box i{
-    width:60px;
-    height:60px;
-    background:var(--primary);
-    color:#fff;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    border-radius:50%;
-    font-size:22px;
-    flex-shrink:0;
-}
-
-/* .info-box i{
-    width:60px;
-    height:60px;
-    background:var(--primary);
-    color:#fff;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    border-radius:50%;
-    font-size:22px;
-    flex-shrink:0;
-} */
 
 .service-card{
     background:var(--card);
@@ -992,33 +926,6 @@ body.dark .contact-form .btn{
 /* ===================================
    PROJECTS SECTION
 =================================== */
-/* Contact info boxes mobile fix */
-.info-box{
-    flex-direction:column;
-    text-align:center;
-    gap:12px;
-    padding:18px;
-}
-
-.info-box > div{
-    text-align:center;
-}
-
-.info-box i{
-    width:50px;
-    height:50px;
-    font-size:20px;
-}
-
-.info-box h4{
-    font-size:16px;
-}
-
-.info-box p,
-.info-box a{
-    font-size:14px;
-    word-break:break-word;
-}
 
 .projects{
     background:var(--bg);
@@ -1328,24 +1235,6 @@ footer p{
     width:90%;
 }
 
-/* About section mobile text center */
-.about-text h3,
-.about-text p{
-    text-align:center;
-}
-
-.about-info{
-    text-align:center;
-}
-
-.about-info h4{
-    text-align:center;
-}
-
-.about-info p{
-    text-align:center;
-}
-
 .hero-container,
 .about-content,
 .contact-wrapper{
@@ -1364,11 +1253,20 @@ footer p{
     justify-content:center;
 }
 
-.skills-grid,
-.service-grid,
-.project-grid,
+.skills-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.service-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.project-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
 .about-info{
-    grid-template-columns:1fr;
+    grid-template-columns:repeat(2,1fr);
 }
 
 .timeline-item{
@@ -1396,7 +1294,7 @@ nav{
 }
 
 .hero{
-        padding-top:140px;
+        padding-top:100px;
         padding-bottom:40px;
         min-height:auto;
 
@@ -1438,20 +1336,11 @@ nav{
     justify-content:center;
 }
 
-.skills-grid{
-    grid-template-columns:repeat(2,1fr);
-}
-
-.service-grid{
-    grid-template-columns:1fr;
-}
-
-.project-grid{
-    grid-template-columns:1fr;
-}
-
+.skills-grid,
+.service-grid,
+.project-grid,
 .about-info{
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:1fr;
 }
 
 .timeline::before{
